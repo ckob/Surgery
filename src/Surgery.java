@@ -1,10 +1,9 @@
-import org.joda.time.DateTime;
-
-import java.util.HashSet;
-
 /**
  * Created by charly on 26/03/16.
  */
+import org.joda.time.DateTime;
+import java.util.HashSet;
+
 public class Surgery {
 
     private String doctorName;
@@ -15,7 +14,7 @@ public class Surgery {
         // TODO: 26/03/16
     }
     public Surgery(String doctorName, String especiality) {
-        visits = new HashSet<Visit>();
+        visits = new HashSet<>();
         this.doctorName=doctorName;
         this.speciality=especiality;
     }
@@ -31,7 +30,7 @@ public class Surgery {
         for (Visit v:visits) {
             DateTime consulta = new DateTime(JodaDT.parseDDMMYYYYhhmm(v.getVisitDateTime()));
             if (visita.isAfter(consulta.plusMinutes(30)) || visita.isBefore(consulta.minusMinutes(30))) {
-                continue; // Es correcte
+                //continue; // No es necessari el continue;
             }
             else {
                 return false;
